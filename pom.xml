@@ -11,7 +11,7 @@
 	<groupId>com.tm</groupId>
 	<artifactId>nbaapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>nbaapp</name>
 	<description>nbaapp</description>
 	<properties>
