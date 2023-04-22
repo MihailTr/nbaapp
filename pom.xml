@@ -17,6 +17,17 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>nbaapp</id>
+			<name>nba-house-manager</name>
+			<url>file:///home/repo/</url>
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
