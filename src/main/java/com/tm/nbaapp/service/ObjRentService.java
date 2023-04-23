@@ -5,6 +5,7 @@ import com.tm.nbaapp.repository.ObjRentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ObjRentService {
@@ -24,5 +25,15 @@ public class ObjRentService {
         var user = userService.findUserByUsername(username);
         objRent.setUser(user);
         return objRentRepository.save(objRent);
+    }
+
+    public Optional<ObjRent> findById(String id) {
+        return objRentRepository.findById(Long.valueOf(Integer.parseInt(id)));
+    }
+
+    public ObjRent update(ObjRent objRent) {
+
+        objRentRepository.save(objRent);
+        return objRent;
     }
 }

@@ -3,10 +3,12 @@ package com.tm.nbaapp.controller;
 import com.tm.nbaapp.model.ObjRent;
 import com.tm.nbaapp.model.User;
 import com.tm.nbaapp.service.ObjRentService;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
@@ -30,5 +32,19 @@ public class ObjRentController {
     public ResponseEntity<List<ObjRent>> getAll() {
         return new ResponseEntity<List<ObjRent>>(objRentService.all(), HttpStatus.OK);
 
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ObjRent> getById(@PathVariable(value = "id") String id) {
+        return objRentService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElseThrow();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ObjRent> update(@PathVariable(value = "id") String id, @Valid @RequestBody ObjRent objRent) {
+        objRent.setId(Long.valueOf(id));
+        objRentService.update(objRent);
+        return ResponseEntity.ok(objRent);
     }
 }
