@@ -36,4 +36,8 @@ public class ObjRentService {
         objRentRepository.save(objRent);
         return objRent;
     }
+
+    public List<ObjRent> findByUser(String id) {
+        return objRentRepository.findByUserId(Long.valueOf(Integer.parseInt(id)));
+    }
 }
