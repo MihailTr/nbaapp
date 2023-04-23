@@ -2,7 +2,6 @@ package com.tm.nbaapp.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,7 +12,6 @@ import java.util.Set;
 
 @Data
 @AllArgsConstructor
-//@NoArgsConstructor
 @Entity
 public class User implements UserDetails {
     @Id
@@ -31,7 +29,7 @@ public class User implements UserDetails {
 
     public User() {
     }
-//
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;
@@ -62,9 +60,6 @@ public class User implements UserDetails {
         return true;
     }
 
-//    public void setUsername(String username) {
-//        this.username = username;
-//    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

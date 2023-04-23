@@ -45,6 +45,11 @@ public class UserService  {
         return userFromDb.orElse(new User());
     }
 
+    public User findUserByUsername(String user) {
+        User userFromDb = userRepository.findByUsername(user);
+        return userFromDb;
+    }
+
     public List<User> allUsers() {
         return userRepository.findAll();
     }

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -21,8 +22,8 @@ public class ObjRentController {
 
 
     @PostMapping("/create")
-    public ResponseEntity<ObjRent> create(@RequestBody ObjRent objRent) {
-        return new ResponseEntity<ObjRent>(objRentService.save(objRent), HttpStatus.CREATED);
+    public ResponseEntity<ObjRent> create(@RequestBody ObjRent objRent, Principal principal) {
+        return new ResponseEntity<ObjRent>(objRentService.save(objRent, principal.getName()), HttpStatus.CREATED);
     }
 
     @GetMapping("/all")
